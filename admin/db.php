@@ -1,4 +1,4 @@
 <?php
-$con = mysqli_connect("localhost","root","","sourcecodester_hoteldb") or die(mysql_error());
+$con = mysqli_connect("localhost","u296169589_hotel","Pandu@777","u296169589_hotel") or die(mysqli_error($con ));
 
 ?>
