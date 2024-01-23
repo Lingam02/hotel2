@@ -62,7 +62,7 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtot
 									<img src="assets/img/<?php echo $cat_arr[$row['category_id']]['cover_img'] ?>" alt="">
 								</div>
 								<div class="col-md-5" height="100%">
-									<h3><b><?php echo '$ '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
+									<h3><b><?php echo '₹ '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
 
 									<h4><b>
 										<?php echo $cat_arr[$row['category_id']]['name'] ?>
