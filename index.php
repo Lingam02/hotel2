@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+  <link rel="stylesheet" href="assets/css/common.css">
+  </head>
     <?php
     session_start();
     include('header.php');
     include('assets/includes/headlinks.php');
     include('admin/db_connect.php');
+    
 
 	$query = $conn->query("SELECT * FROM system_settings limit 1")->fetch_array();
 	foreach ($query as $key => $value) {
@@ -28,15 +32,15 @@
       </div>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['setting_hotel_name'] ?></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger ms-2" href="./"><?php echo $_SESSION['setting_hotel_name'] ?></a>
+                <button class="navbar-toggler navbar-toggler-right me-2 shadow-none" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=list">Rooms</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=facilities">Facilities</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="admin">Login</a></li>
+                        <li class="nav-item ms-2"><a class="nav-link js-scroll-trigger" href="index.php?page=home">Home</a></li>
+                        <li class="nav-item ms-2"><a class="nav-link js-scroll-trigger" href="index.php?page=list">Rooms</a></li>
+                        <li class="nav-item ms-2"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
+                        <li class="nav-item ms-2"><a class="nav-link js-scroll-trigger" href="index.php?page=facilities">Facilities</a></li>
+                        <li class="nav-item ms-2"><a class="nav-link js-scroll-trigger" href="admin">Login</a></li>
                     </ul>
                 </div>
             </div>

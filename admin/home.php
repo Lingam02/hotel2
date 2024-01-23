@@ -77,11 +77,11 @@ a.custom-menu-list span.icon{
 }
 </style>
 
-<div class="containe-fluid">
+<div class="containe-fluid p-0">
 
 	<div class="row">
-		<div class="col-lg-12">
-			<div class="card col-md-4 offset-2 bg-info float-left">
+		<div class="col-lg-12 p-0">
+			<div class="card col-md-4 offset-2 bg-info ml-4 float-left p-0">
 				<div class="card-body text-white">
 					<h4><b>Booking</b></h4>
 					<hr>
@@ -89,7 +89,7 @@ a.custom-menu-list span.icon{
 					<h3 class="text-right"><b></b></h3>
 				</div>
 			</div>
-			<div class="card col-md-4 offset-2 bg-primary ml-4 float-left">
+			<div class="card col-md-4 offset-2 bg-primary ml-4 float-left p-0">
 				<div class="card-body text-white">
 					<h4><b>Rooms</b></h4>
 					<hr>
