@@ -314,21 +314,60 @@ include_once('assets/includes/headlinks.php');
 
         
 //============ script for date set default in input field visible starts===============
+// window.onload = function () {
+//   var currentDate = new Date();
+//   var outDate =currentDate+1;
+//   console.log(outDate);
+//   var day = currentDate.getDate();
+//   var month = currentDate.getMonth() + 1; // Month is zero-based
+//   var year = currentDate.getFullYear();
+
+//   var day1 = outDate.getDate();
+//   var month1 = outDate.getMonth() + 1; // Month is zero-based
+//   var year1 = outDate.getFullYear();
+
+
+//   // Format the date as YYYY-MM-DD (ISO format)
+//   var formattedDate = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0');
+
+//   var formattedDate1 = year1 + '-' + month1.toString().padStart(2, '0') + '-' + day1.toString().padStart(2, '0');
+
+//   // Set the attribute of the input field
+//   document.getElementById('date_in').value = formattedDate;
+//   document.getElementById('date_out').value = formattedDate1;
+ 
+
+// };
+//----------------------------------------------------------
+
 window.onload = function () {
   var currentDate = new Date();
+  
+  // Create a new Date object for the next day
+  var nextDate = new Date(currentDate);
+  nextDate.setDate(currentDate.getDate() + 1);
+
+  // Get the components of the current date
   var day = currentDate.getDate();
   var month = currentDate.getMonth() + 1; // Month is zero-based
   var year = currentDate.getFullYear();
 
-  // Format the date as YYYY-MM-DD (ISO format)
+  // Get the components of the next date
+  var day1 = nextDate.getDate();
+  var month1 = nextDate.getMonth() + 1; // Month is zero-based
+  var year1 = nextDate.getFullYear();
+
+  // Format the current date as YYYY-MM-DD (ISO format)
   var formattedDate = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0');
 
-  // Set the attribute of the input field
-  document.getElementById('date_in').value = formattedDate;
-  document.getElementById('date_out').value = formattedDate;
- 
+  // Format the next date as YYYY-MM-DD (ISO format)
+  var formattedDate1 = year1 + '-' + month1.toString().padStart(2, '0') + '-' + day1.toString().padStart(2, '0');
 
+  // Set the value of the input fields
+  document.getElementById('date_in').value = formattedDate;
+  document.getElementById('date_out').value = formattedDate1;
 };
+
 
 //=============== script for date ends ================= 
 

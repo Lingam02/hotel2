@@ -13,7 +13,10 @@ while($row = $room->fetch_assoc()){
 <div class="container-fluid">
 	<div class="col-lg-12">
 		<div class="row mt-3">
+		
+
 			<div class="col-md-12">
+			<button type="button" class="btn btn-primary btn-large mb-2"onclick ='location.reload()'>New</button>
 				<div class="card">
 					<div class="card-body">
 						<table class="table table-bordered">

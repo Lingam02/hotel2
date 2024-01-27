@@ -3,6 +3,8 @@
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="col-md-12">
+			<button type="button" class="btn btn-primary btn-large mb-2"onclick ='location.reload()'>New</button>
+
 				<div class="card">
 					<div class="card-body">
 						<div class="container-fluid">

@@ -1,6 +1,20 @@
 <?php
+// $date_in = isset($_POST['date_in']) ? $_POST['date_in'] : date('Y-m-d');
+// $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtotime(date('Y-m-d').' + 3 days'));
+?>
+<?php
+// Set the timezone to India
+date_default_timezone_set('Asia/Kolkata');
+
+// Get the current date in India timezone
 $date_in = isset($_POST['date_in']) ? $_POST['date_in'] : date('Y-m-d');
-$date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d',strtotime(date('Y-m-d').' + 3 days'));
+
+// Get the date 3 days from now in India timezone
+$date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d', strtotime(date('Y-m-d').' + 3 days'));
+
+// Output the dates
+// echo "Date In: " . $date_in . "<br>";
+// echo "Date Out: " . $date_out . "<br>";
 ?>
 
 	 <!-- Masthead-->
