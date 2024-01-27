@@ -59,6 +59,7 @@ Class Action {
 		$data = " hotel_name = '$name' ";
 		$data .= ", email = '$email' ";
 		$data .= ", contact = '$contact' ";
+		$data .= ", foot_about = '$foot_about' ";
 		$data .= ", about_content = '".htmlentities(str_replace("'","&#x2019;",$about))."' ";
 		if($_FILES['img']['tmp_name'] != ''){
 						$fname = strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
@@ -137,9 +138,25 @@ Class Action {
 		$data .= ", contact_no = '$contact' ";
 		$data .= ", status = 1 ";
 
-		$data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
-		$out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
-		$data .= ", date_out = '$out' ";
+		// $data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
+		// $out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
+		// $data .= ", date_out = '$out' ";
+
+			// Set the time zone to India
+			$indiaTimeZone = new DateTimeZone('Asia/Kolkata');
+	
+			// Create DateTime objects for date_in and date_in_time
+			$dateIn = new DateTime($date_in . ' ' . $date_in_time, $indiaTimeZone);
+		
+			// Format the date_in and date_in_time as 'Y-m-d H:i' for storage
+			$data .= ", date_in = '" . $dateIn->format('Y-m-d H:i') . "' ";
+		
+			// Calculate date_out by adding days to date_in
+			$out = clone $dateIn;
+			$out->modify("+$days days");
+			$data .= ", date_out = '" . $out->format('Y-m-d H:i') . "' ";
+
+			
 		$i = 1;
 		while($i== 1){
 			$ref  = sprintf("%'.04d\n",mt_rand(1,9999999999));
@@ -170,16 +187,38 @@ Class Action {
 			}
 
 	}
-	function save_book(){
+	// function save_book(){
+	// 	extract($_POST);
+		
+	// 	$data = " booked_cid = '$cid' ";
+	// 	$data .= ", name = '$name' ";
+	// 	$data .= ", contact_no = '$contact' ";
+	// 	$data .= ", status = 0 ";
+
+	// 	$data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
+	// 	$out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
+	// 	$data .= ", date_out = '$out' ";
+	function save_book() {
 		extract($_POST);
+	
 		$data = " booked_cid = '$cid' ";
 		$data .= ", name = '$name' ";
 		$data .= ", contact_no = '$contact' ";
 		$data .= ", status = 0 ";
-
-		$data .= ", date_in = '".$date_in.' '.$date_in_time."' ";
-		$out= date("Y-m-d H:i",strtotime($date_in.' '.$date_in_time.' +'.$days.' days'));
-		$data .= ", date_out = '$out' ";
+	
+		// Set the time zone to India
+		$indiaTimeZone = new DateTimeZone('Asia/Kolkata');
+	
+		// Create DateTime objects for date_in and date_in_time
+		$dateIn = new DateTime($date_in . ' ' . $date_in_time, $indiaTimeZone);
+	
+		// Format the date_in and date_in_time as 'Y-m-d H:i' for storage
+		$data .= ", date_in = '" . $dateIn->format('Y-m-d H:i') . "' ";
+	
+		// Calculate date_out by adding days to date_in
+		$out = clone $dateIn;
+		$out->modify("+$days days");
+		$data .= ", date_out = '" . $out->format('Y-m-d H:i') . "' ";
 		$i = 1;
 		while($i== 1){
 			$ref  = sprintf("%'.04d\n",mt_rand(1,9999999999));

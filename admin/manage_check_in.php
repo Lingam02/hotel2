@@ -50,14 +50,23 @@ while($row = $cat->fetch_assoc()){
 			<label for="contact">Contact #</label>
 			<input type="text" name="contact" id="contact" class="form-control" value="<?php echo isset($meta['contact_no']) ? $meta['contact_no']: '' ?>" required>
 		</div>
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label for="date_in">Check-in Date</label>
 			<input type="date" name="date_in" id="date_in" class="form-control" value="<?php echo isset($meta['date_in']) ? date("Y-m-d",strtotime($meta['date_in'])): date("Y-m-d") ?>" required>
 		</div>
 		<div class="form-group">
 			<label for="date_in_time">Check-in Date</label>
 			<input type="time" name="date_in_time" id="date_in_time" class="form-control" value="<?php echo isset($meta['date_in']) ? date("H:i",strtotime($meta['date_in'])): date("H:i") ?>" required>
-		</div>
+		</div> -->
+		<div class="form-group">
+        <label for="date_in">Check-in Date</label>
+        <input type="date" name="date_in" id="date_in" class="form-control" value="<?php echo isset($_GET['in']) ? date("Y-m-d", strtotime($_GET['in'])) : date("Y-m-d") ?>" required readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="date_in_time">Check-in Time</label>
+        <input type="time" name="date_in_time" id="date_in_time" class="form-control" value="<?php echo getTimeInIndia(); ?>" required>
+    </div>
 		<div class="form-group">
 			<label for="days">Days of Stay</label>
 			<input type="number" min ="1" name="days" id="days" class="form-control" value="<?php echo isset($meta['date_in']) ? $calc_days: 1 ?>" required>
@@ -83,4 +92,17 @@ while($row = $cat->fetch_assoc()){
 			}
 		})
 	})
+	<?php
+    function getTimeInIndia()
+    {
+        // Set the time zone to India
+        $indiaTimeZone = new DateTimeZone('Asia/Kolkata');
+
+        // Create a DateTime object with the current time in the India time zone
+        $indiaTime = new DateTime('now', $indiaTimeZone);
+
+        // Format the time as 'H:i' for the input value
+        return $indiaTime->format('H:i');
+    }
+    ?>
 </script>

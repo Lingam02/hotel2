@@ -17,6 +17,10 @@ if($qry->num_rows > 0){
 					<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($meta['hotel_name']) ? $meta['hotel_name'] : '' ?>" required>
 				</div>
 				<div class="form-group">
+					<label for="name" class="control-label">Website About</label>
+					<input type="text" class="form-control" id="foot_about" name="foot_about" value="<?php echo isset($meta['foot_about']) ? $meta['foot_about'] : '' ?>" required>
+				</div>
+				<div class="form-group">
 					<label for="email" class="control-label">Hotel email</label>
 					<input type="email" class="form-control" id="email" name="email" value="<?php echo isset($meta['email']) ? $meta['email'] : '' ?>" required>
 				</div>

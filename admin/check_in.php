@@ -94,4 +94,18 @@
 		e.preventDefault()
 		location.replace('index.php?page=check_in&category_id='+$(this).find('[name="category_id"]').val()+'&status='+$(this).find('[name="status"]').val())
 	})
+
+	<?php
+    function getTimeInIndia()
+    {
+        // Set the time zone to India
+        $indiaTimeZone = new DateTimeZone('Asia/Kolkata');
+
+        // Create a DateTime object with the current time in the India time zone
+        $indiaTime = new DateTime('now', $indiaTimeZone);
+
+        // Format the time as 'H:i' for the input value
+        return $indiaTime->format('H:i');
+    }
+    ?>
 </script>

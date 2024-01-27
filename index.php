@@ -2,8 +2,11 @@
 <html lang="en">
   <head>
   <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
     <?php
+
+    
     session_start();
     include('header.php');
     include('assets/includes/headlinks.php');
@@ -78,7 +81,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       </div>
       </div>
     </div>

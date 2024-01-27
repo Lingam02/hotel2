@@ -87,6 +87,10 @@ include ('assets/includes/footer.php');
 	.item-rooms img {
     width: 23vw;
 }
+
+#date_in,#date_out{
+  color: blue !important;
+}
 </style>
 <script>
 	$('.book_now').click(function(){

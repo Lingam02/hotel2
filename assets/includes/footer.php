@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-lg-4 p-4">
             <h3 class="h-font fw-bold fs-3 mb-2"><a class="navbar-brand js-scroll-trigger" href="./"><?php echo $_SESSION['setting_hotel_name'] ?></a></h3>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non minus recusandae expedita ipsa rem, exercitationem quae praesentium atque! Minus deleniti accusantium quam atque, earum voluptatem ipsa a cum magni exercitationem.</P>
+            <P><?php echo $_SESSION['setting_foot_about'] ?></P>
         </div>
         <div class="col-lg-4 p-4">
             <h3 class=" mb-3">Links</h3>

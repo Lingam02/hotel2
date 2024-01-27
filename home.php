@@ -14,12 +14,14 @@ include_once('assets/includes/headlinks.php');
                     					<div class="row">
                     						<div class="col-md-3">
                     							<label for="">Chech-in Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_in" autocomplete="off">
+                    							<input type="date" class="form-control" name="date_in" id="date_in" autocomplete="off">
                     						</div>
+                                            <!-- datepicker -->
                     						<div class="col-md-3">
                     							<label for="">Chech-out Date</label>
-                    							<input type="text" class="form-control datepicker" name="date_out" autocomplete="off">
+                    							<input type="date" class="form-control" name="date_out" id="date_out" autocomplete="off">
                     						</div>
+                                            <!-- datepicker -->
                     						
                     						<div class="col-md-3">
                     							<br>
@@ -152,6 +154,81 @@ include_once('assets/includes/headlinks.php');
         </div>
     </div>
     </div>
+
+
+    <!-- custom -->
+  <!-- Testimonial -->
+  <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">TESTIMONIALS</h2>
+    <div class="container mb-5">
+        <div class="swiper swiper_testimonial">
+            <div class="swiper-wrapper mb-5">
+                <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                        <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 1</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                        <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 2</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div>
+                <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                        <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 3</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div>
+                <!-- <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                    <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 4</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                </div> -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+            
+        </div>
+        <div class="col-lg-12 text-center mt-5">
+                <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More >>></a>
+            </div>
+    </div>
+
+    <!-- custom -->
     <!-- FOOTER US -->
     <?php require('assets/includes/footer.php') ?>
 
@@ -234,6 +311,27 @@ include_once('assets/includes/headlinks.php');
                 },
             },
         });
+
+        
+//============ script for date set default in input field visible starts===============
+window.onload = function () {
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1; // Month is zero-based
+  var year = currentDate.getFullYear();
+
+  // Format the date as YYYY-MM-DD (ISO format)
+  var formattedDate = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0');
+
+  // Set the attribute of the input field
+  document.getElementById('date_in').value = formattedDate;
+  document.getElementById('date_out').value = formattedDate;
+ 
+
+};
+
+//=============== script for date ends ================= 
+
     </script>
 <!-- custom -->
 

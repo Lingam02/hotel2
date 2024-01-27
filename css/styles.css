@@ -10219,3 +10219,7 @@ header.masthead h1 {
     right: 0;
     top: 3.5rem;
 }
+
+#date_in,#date_out{
+  color: blue !important;
+}
