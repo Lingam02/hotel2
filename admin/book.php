@@ -22,11 +22,11 @@ $calc_days = abs(strtotime($_GET['out']) - strtotime($_GET['in'])) ;
 		</div>
 		<!-- <div class="form-group">
 			<label for="date_in">Check-in Date</label>
-			<input type="date" name="date_in" id="date_in" class="form-control" value="<?php echo isset($_GET['in']) ? date("Y-m-d",strtotime($_GET['in'])): date("Y-m-d") ?>" required readonly>
+			<input type="date" name="date_in" id="date_in" class="form-control" value="<?php // echo isset($_GET['in']) ? date("Y-m-d",strtotime($_GET['in'])): date("Y-m-d") ?>" required readonly>
 		</div>
 		<div class="form-group">
 			<label for="date_in_time">Check-in Time</label>
-			<input type="time" name="date_in_time" id="date_in_time" class="form-control" value="<?php echo isset($_GET['date_in']) ? date("H:i",strtotime($_GET['date_in'])): date("H:i") ?>" required>
+			<input type="time" name="date_in_time" id="date_in_time" class="form-control" value="<?php //echo isset($_GET['date_in']) ? date("H:i",strtotime($_GET['date_in'])): date("H:i") ?>" required>
 		</div> -->
 		<div class="form-group">
         <label for="date_in">Check-in Date</label>

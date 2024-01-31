@@ -1,4 +1,7 @@
-<?php include('db_connect.php'); ?>
+<?php include('db_connect.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -252,9 +255,21 @@
                                     <label for="state" class="form-label">State</label>
                                     <input type="text" class="form-control shadow-none" name="state" id="state" required>
                                 </div>
+                                <?php
+
+								$countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
+
+								?>
                                 <div class="mb d-flex">
                                     <label for="country" class="form-label">Country</label>
-                                    <input type="text" class="form-control shadow-none" name="country" id="country" required>
+                                    <select name="country" class="form-control" id="country"  required>
+												<option value selected >Select </option>
+                                                <?php
+												foreach($countries as $key => $value):
+												echo '<option value="'.$value.'">'.$value.'</option>'; //close your tags!!
+												endforeach;
+												?>
+                                            </select>
                                 </div>
 
                                 <div class="mb d-flex">
@@ -283,7 +298,7 @@
 
 
                                 <div class="mb d-flex">
-                                    <label for="segment" class="form-label me-2">Segmt& source</label>
+                                    <!-- <label for="segment" class="form-label me-2">Segmt& source</label>
                                     <div class="w-50">
                                         <select class="form-select" id="segment" name="segment" aria-label="Example select with button addon">
                                             <option selected>Select</option>
@@ -299,11 +314,11 @@
                                             <option value="2">Option 2</option>
                                             <option value="3">Option 3</option>
                                         </select>
-                                    </div>
+                                    </div> -->
 
                                 </div>
 
-                                <div class="mb d-flex">
+                                <!-- <div class="mb d-flex">
                                     <label for="g_status" class="form-label">Guest Status</label>
 
                                     <select class="form-select" id="g_status" name="g_status" aria-label="Example select with button addon">
@@ -312,7 +327,7 @@
                                         <option value="2">Option 2</option>
                                         <option value="3">Option 3</option>
                                     </select>
-                                </div>
+                                </div> -->
 
                             </div><!-- col end-->
                         </div><!-- row end-->
@@ -324,23 +339,36 @@
                             <div class="col-md-3 flex-fill">
                                 <div class="mb d-flex">
                                     <label for="room_type" class="form-label">Room Type</label>
-                                    <select class="form-select" name="room_type" id="room_type" aria-label="Example select with button addon">
-                                        <option selected>Select</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
+                                    <select class="form-select" name="room_type" id="room_type" aria-label="Example select with button addon" onchange="dis_price()">
+                                    <option value="">select</option>
+
+                                        <?php
+
+                                        // Query to fetch room categories from the database
+                                        $sql = "SELECT * FROM room_categories ORDER BY ID";
+                                        $result = mysqli_query($conn, $sql);
+                                        // Check if query executed successfully
+                                        if ($result) {
+                                            // Loop through each row in the result set
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                // Output an option for each room category
+                                                echo '<option value="' . $row['id'] . '">' . $row['name'] . '</option>';
+                                            }
+                                            // Free result set
+                                            mysqli_free_result($result);
+                                        } else {
+                                            // Query failed
+                                            echo '<option selected disabled>Error fetching data</option>';
+                                        }
+                                        
+                                        ?>
+                                </select>
                                 </div>
                             </div>
                             <div class="col-md-2 flex-fill">
                                 <div class="mb d-flex">
-                                    <label for="n_status" class="form-label">Status</label>
-                                    <select class="form-select" id="n_status" name="n_status" aria-label="Example select with button addon">
-                                        <option selected>Select</option>
-                                        <option value="1">Option 1</option>
-                                        <option value="2">Option 2</option>
-                                        <option value="3">Option 3</option>
-                                    </select>
+                                    <label for="check_in_date" class="form-label">Check-in Date</label>
+                                    <input type="date" class="form-control shadow-none ms-2" name="check_in_date" id="check_in_date" required>
                                 </div>
                             </div>
                             <div class="col-md-4 flex-fill">
@@ -349,10 +377,10 @@
                                     <div class="d-flex">
                                         <input type="number" class="form-control shadow-none" placeholder="No Of Days" name="checkout_no" id="checkout_no" required>
                                     </div>
-                                    <input type="date" class="form-control shadow-none ms-2" name="checkout_date" id="checkout_date" required>
+                                    <input type="date" class="form-control shadow-none ms-2" name="check_out_date" id="check_out_date" required>
                                 </div>
                             </div>
-                            <div class="col-md-3 flex-fill">
+                            <!-- <div class="col-md-3 flex-fill">
                                 <div class="mb d-flex">
                                     <label for="plan" class="form-label">Plan</label>
                                     <select class="form-select" id="plan" name="plan" aria-label="Example select with button addon">
@@ -362,7 +390,7 @@
                                         <option value="3">Option 3</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="container-fluid c3">
@@ -400,19 +428,22 @@
                                 <h5>Room Rent Details</h5>
                                 <div class="mb d-flex">
                                     <label for="room_rent" class="form-label">Room Rent</label>
-                                    <input type="number" class="form-control shadow-none" id="room_rent" name="room_rent" required>
+                                    <input type="number" class="form-control shadow-none" id="room_rent" name="room_rent" required >
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="r_sgst" class="form-label">S GST</label>
                                     <input type="number" class="form-control shadow-none" name="r_sgst" id="r_sgst" required>
+                                    <!-- <input type="number" class="form-control shadow-none" name="r_sgst_h" id="r_sgst_h" required> -->
+                                    <input type="hidden" class="form-control shadow-none" name="gst_h_input" id="gst_h_input" required>
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="r_cgst" class="form-label">C GST</label>
                                     <input type="number" class="form-control shadow-none" name="r_cgst" id="r_cgst" required>
+                                    <!-- <input type="number" class="form-control shadow-none" name="r_cgst_h" id="r_cgst_h" required> -->
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="r_ttl_rent" class="form-label">Total Rent</label>
-                                    <input type="number" class="form-control shadow-none" id="r_ttl_rent" name="r_ttl_rent" required>
+                                    <input type="number" class="form-control shadow-none" id="r_ttl_rent" name="r_ttl_rent" readonly>
                                 </div>
 
                             </div><!-- col end-->
@@ -443,7 +474,7 @@
                                     <input type="number" class="form-control shadow-none" id="disc" name="disc" required>
                                 </div>
                                 <div class="mb d-flex">
-                                    <label for="disc_reason" class="form-label">Dis Reason</label>
+                                    <label for="disc_reason" class="form-label">Disc Reason</label>
                                     <input type="text" class="form-control shadow-none" id="disc_reason" name="disc_reason" required>
                                 </div>
                                 <div class="mb d-flex">
@@ -506,7 +537,7 @@
                                 <textarea class="form-control shadow-none" id="remarks" name="remarks" rows="3"></textarea>
                             </div>
                             <div class="col-md-4 flex-fill ">
-                                <button type="submit" name="checkin_btn" id="checkin_btn" class="btn btn-primary shadow-none">Check-In</button>
+                                <button type="submit" name="save" id="save" class="btn btn-primary shadow-none">Save</button>
                                 <button type="button" id="print_bill" class="btn btn-primary shadow-none">Print</button>
                             </div>
 
@@ -519,7 +550,7 @@
     </div> <!-- main end -->
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+<script src="js/billing.js"></script>
 </body>
 
 </html>
