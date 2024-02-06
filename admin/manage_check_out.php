@@ -49,7 +49,7 @@ if($_GET['id']){
 				</div>
 		<?php endif; ?>	
 				<div class="col-md-3">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 				</div>
 		
 		</div>

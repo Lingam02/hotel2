@@ -30,11 +30,11 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d', strto
             </div>
         </header>
 
-<section class="page-section bg-dark">
+<section class="page-section bg-light">
 		
 		<div class="container">	
 				<div class="col-lg-12">	
-						<div class="card">
+						<div class="card shadow">
 							<div class="card-body">	
 									<form action="index.php?page=list" id="filter" method="POST">
 			        					<div class="row">
@@ -69,7 +69,7 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d', strto
 							while($row= $qry->fetch_assoc()):
 
 						?>
-						<div class="card item-rooms mb-3">
+						<div class="card item-rooms mb-3 shadow">
 							<div class="card-body">
 								<div class="row">
 								<div class="col-md-5">

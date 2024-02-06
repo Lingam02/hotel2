@@ -27,6 +27,7 @@
       </div>
       <div class="col-md-4 float-left text-white">
         <large><b><?php echo $_SESSION['setting_hotel_name']; ?></b></large>
+        <large class="ms-5">Gst No<b id="gst_no_hotel" class="ms-3"><?php echo $_SESSION['setting_gst_no']; ?></b></large>
       </div>
       <div class="col-md-2 float-right text-white">
         <a href="ajax.php?action=logout" class="text-white"><?php echo $_SESSION['login_name'] ?> <i class="fa fa-power-off"></i></a>

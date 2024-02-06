@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+   
+}
+
+.wrapper1 {
+    width: 100%;
+    margin: auto;
+}
+
+.table-frame {
+    overflow: auto;
+    border: 1px solid rgb(209, 204, 204);
+    max-height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.table-frame table {
+    position: relative;
+    width: 100%;
+}
+
+.table-frame th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #FEFFFE;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background: #e4e7e7;
+}
+
+table {
+    width: 100%;
+}
+thead{
+    width: 100%;
+}
+
+th {
+
+    background: #244ac7 !important;
+    color: #f8f7fa;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 2px !important;
+    /* border-right: 1px solid #000; */
+}
+
+td {
+    vertical-align: top;
+    text-align: center;
+    padding-top: 1px !important;
+    /* border-right: 1px solid; */
+    font-size: 13px;
+    /* padding: 1px !important; */
+}
+
+input {
+    border-radius: 2px !important;
+    border: 1px solid #c7c5c5 !important;
+    height: 25px !important;
+
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: blue !important;
+    background-color: transparent !important;
+    border-color: rgb(187, 184, 184) !important;
+    padding: 2px !important;
+}
+
+
+textarea:focus {
+    border-color: rgb(185, 183, 183) !important;
+    box-shadow: 2px 2px 5px #bcbbbd !important;
+    background-color: #ffffff !important;
+
+}
+
+input:focus {
+    border-color: rgb(185, 183, 183) !important;
+    box-shadow: 2px 2px 5px #bcbbbd !important;
+    background-color: #ffffff !important;
+
+}
+
+
+
+label {
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    /* background-color: aqua; */
+    width: 120px;
+    display: inline-block
+}
+
+/* style for button starts */
+
+/* .buttons button {
+    background-color: #17A2B8;
+    color: #ffffff;
+    border-radius: 3px;
+    border-color: rgb(109, 172, 172);
+    font-weight: 600;
+    padding: 2px 7px;
+}
+
+
+.buttons .save {
+    padding: 2px 18px;
+}
+
+.buttons .edit {
+    padding: 2px 20px;
+
+}
+
+.buttons .print {
+    padding: 2px 18px;
+}
+
+.buttons .new {
+    padding: 2px 18px;
+}
+
+.buttons .home {
+    padding: 2px 20px;
+
+} */
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: 8px;
+}
+
+.buttons button {
+    background-color: #2f5b91;
+    /* display: inline-block; */
+    color: #fff;
+    width: 100px;
+    padding: 5px;
+    text-transform: capitalize;
+    border-color: #003c85;
+    border-radius: 4px;
+}
+
+.buttons button:hover {
+    /* background-color: #63a3d7; */
+    border-color: rgb(218, 227, 229);
+    border-width: 3px;
+}
+
+.home:hover {
+    background-color: rgb(0, 59, 0) !important;
+    border-color: rgb(0, 7, 0) !important;
+    opacity: 0.8;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Width of thead cells in percentages start*/
+
+/*  add total 100% of 14 child*/
+/* S.I No */
+#invoice-table th:nth-child(1) {
+    width: 14%;
+}
+
+/* Item Name */
+#invoice-table th:nth-child(2) {
+    width: 21%;
+}
+
+/* Hsn */
+#invoice-table th:nth-child(3) {
+    width: 8%;
+}
+
+/* Description */
+#invoice-table th:nth-child(4) {
+    width: 8%;
+}
+
+/* Gst % */
+#invoice-table th:nth-child(5) {
+    width: 8%;
+}
+
+/* Unit */
+#invoice-table th:nth-child(6) {
+    width: 8%;
+}
+/* 
+
+.btn-danger {
+    background-color: #f44336 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 3px !important;
+    font-size: 13px !important;
+    padding: 2px 5px !important;
+    cursor: pointer !important;
+
+}
+
+/* .btnadd{
+    background-color: blue;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-color: blue;
+    border-radius:2px;
+   
+    vertical-align: center;
+} */
+
+
+#gst-table table {
+
+    border: 1px solid #000;
+    border-collapse: collapse;
+
+}
+
+#gst-table th {
+    background: none !important;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#gst-table td,
+th {
+    border: 1px solid #c7c5c5;
+}
+
+#gst-table th {
+    background: transparent !important;
+}
+
+#gst-table tr:nth-child(even) {
+    background: transparent;
+}
+

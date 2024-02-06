@@ -17,6 +17,10 @@ if($qry->num_rows > 0){
 					<input type="text" class="form-control" id="name" name="name" value="<?php echo isset($meta['hotel_name']) ? $meta['hotel_name'] : '' ?>" required>
 				</div>
 				<div class="form-group">
+					<label for="gst_no" class="control-label">Hotel Gst No</label>
+					<input type="text" class="form-control" id="gst_no" name="gst_no" value="<?php echo isset($meta['gst_no']) ? $meta['gst_no'] : '' ?>" required>
+				</div>
+				<div class="form-group">
 					<label for="name" class="control-label">Website About</label>
 					<input type="text" class="form-control" id="foot_about" name="foot_about" value="<?php echo isset($meta['foot_about']) ? $meta['foot_about'] : '' ?>" required>
 				</div>

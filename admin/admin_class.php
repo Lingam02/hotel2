@@ -57,6 +57,7 @@ Class Action {
 	function save_settings(){
 		extract($_POST);
 		$data = " hotel_name = '$name' ";
+		$data = " gst_no = '$gst_no' ";
 		$data .= ", email = '$email' ";
 		$data .= ", contact = '$contact' ";
 		$data .= ", foot_about = '$foot_about' ";
