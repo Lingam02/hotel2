@@ -31,7 +31,7 @@ function gst_cal() {
   }
   // var totalRent = roomRent + gst_amt;
   document.getElementById("gstamt").value = gst_amt.toFixed(2) || 0;
-
+  document.getElementById("fnet").value = parseFloat(document.getElementById("gstamt").value) + parseFloat(document.getElementById("tax-amt").value);
 }
 /* Room Rent Calculation Ends */
 
@@ -270,10 +270,9 @@ function calculateTotal() {
   console.log(rndoff);
   document.getElementById("total").value = amt_row_total.toFixed(2);
   document.getElementById("tax-amt").value = ttl_amt.toFixed(2);
-  document.getElementById("fnet").value = netamount1.toFixed(2);
-  document.getElementById("rnd-off").value = rndoff.toFixed(2);
-  document.getElementById("gstamt").value = totalgstamt.toFixed(2);
- 
+  // document.getElementById("fnet").value = netamount1.toFixed(2);
+  // document.getElementById("rnd-off").value = rndoff.toFixed(2);
+  // document.getElementById("gstamt").value = totalgstamt.toFixed(2);
   gst_cal();
 }
 

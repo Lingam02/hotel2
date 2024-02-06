@@ -77,9 +77,9 @@
             margin: 0;
         }
 
-        input[type=number] {
+        /* input[type=number] {
             -moz-appearance: textfield;
-        }
+        } */
 
 
 
@@ -305,6 +305,10 @@
                                 <div class="mb d-flex">
                                     <label for="per_proof_no" class="form-label">Proof Id No</label>
                                     <input type="text" class="form-control shadow-none" name="per_proof_no" id="per_proof_no" required>
+                                </div>
+                                <div class="mb d-flex">
+                                    <label for="booking_id" class="form-label">Booking Id</label>
+                                    <input type="text" class="form-control shadow-none" name="booking_id" id="booking_id" required>
                                 </div>
                             </div><!-- col end-->
                         </div><!-- row end-->
