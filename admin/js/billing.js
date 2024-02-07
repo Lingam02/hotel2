@@ -263,7 +263,7 @@ function calculateTotal() {
   var paramt = parseFloat(document.getElementById("other-charges").value) || 0;
   var ttl_amt = parseFloat((total_input + paramt) - disamt1) || 0;
   var totalgstamt = parseFloat(document.getElementById("gstamt").value) || 0;
-  const netamount = parseFloat((ttl_amt + totalgstamt ));
+  const netamount = parseFloat((ttl_amt + totalgstamt));
   const netamount1 = Math.round(netamount);
   const rndoff = netamount1 - netamount;
   console.log(netamount1);
@@ -294,3 +294,161 @@ updateTime();
 
 // Update the time every second (1000 milliseconds)
 setInterval(updateTime, 1000);
+
+
+const edit_input = document.getElementById('edit_input');
+
+edit_input.addEventListener('change', function (event) {
+  const selectedOption = event.target.value;
+  const datalistOptions = document.getElementById('acname');
+
+  const options = datalistOptions.getElementsByTagName('option');
+  for (let i = 0; i < options.length; i++) {
+    const option = options[i];
+    const optionValue = option.value;
+
+    if (optionValue === selectedOption) {
+      var selectedAcid = option.getAttribute('data-acid'); // Assign value to selectedAcid
+
+      document.getElementById("edit_input_hidden").value = selectedAcid;
+      console.log('edit_input value ->', edit_input.value)
+      console.log('hidden id ->', selectedAcid)
+      break;
+    }
+  }
+
+});
+function show_form_det() {
+
+  var id = document.getElementById('edit_input_hidden').value;
+
+  $.ajax({
+    url: 'fetch/fetch_cust_hd.php',
+    method: 'POST',
+    data: {
+      id: id
+    },
+    dataType: 'json',
+    success: function (item) {
+console.table('cust hd',item);
+            
+      document.getElementById('booking_id').value = item.booking_id;
+
+      document.getElementById('resp').value = item.resp;
+      document.getElementById('cust_name').value = item.cust_name;
+      document.getElementById('dob').value = item.dob;
+      document.getElementById('email').value = item.email;
+      document.getElementById('mbl_no').value = item.mbl_no;
+      document.getElementById('add1').value = item.add1;
+      document.getElementById('city').value = item.city;
+      document.getElementById('state').value = item.states;
+      document.getElementById('country').value = item.country;
+      document.getElementById('gst_no').value = item.gst_no;
+      document.getElementById('purpose').value = item.purpose;
+      document.getElementById('photo').innerText = item.photo;
+      document.getElementById('per_proof').innerText = item.per_proof;
+      document.getElementById('per_proof_no').value = item.per_proof_no;
+      document.getElementById('check_in_date').value = item.check_in_date;
+      document.getElementById('checkout_no').value = item.checkout_no;
+      document.getElementById('check_out_date').value = item.check_out_date;
+      document.getElementById('adult').value = item.adult;
+      document.getElementById('male').value = item.male;
+      document.getElementById('female').value = item.female;
+      document.getElementById('child').value = item.child;
+      document.getElementById('gst_h_input').value = 12;
+      document.getElementById('igst').value = item.igst;
+      document.getElementById('r_sgst').value = item.sgst;
+      document.getElementById('r_cgst').value = item.cgst;
+      document.getElementById('total').value = item.total;
+      document.getElementById('discount').value = item.discount;
+      document.getElementById('other-charges').value = item.other_charges;
+      document.getElementById('tax-amt').value = item.tax_amt;
+      document.getElementById('gstamt').value = item.gst_amt;
+      document.getElementById('rnd-off').value = item.round_off;
+      document.getElementById('fnet').value = item.net_amt;
+      fetch_cust_det();
+      document.getElementById('save').style.display = 'none';
+      document.getElementById('update').style.display = 'block';
+      document.querySelector('.modal').style.display = 'none';
+
+    }
+  });
+}
+
+document.getElementById('update').style.display = 'none';
+
+
+
+function fetch_cust_det() {
+  // alert('ok')
+  var id = document.getElementById("edit_input_hidden").value;
+  $.ajax({
+    url: 'fetch/fetch_cust_det.php',
+    method: 'POST',
+    data: { id: id },
+    dataType: 'json',
+    success: function (work) {
+      // console.log('cust det',work);
+
+      //-------------------
+      let table_body = document.getElementById("table-body");
+      let maxrec = work.length;
+
+      // Remove all rows except the last one
+      while (table_body.rows.length > 1) {
+        table_body.deleteRow(0);
+      }
+      //-------------------
+
+      work.forEach(function (invoice, index) {
+        console.table('inv det', invoice);
+        const table = document.getElementById("invoice-table"); // Replace with your table ID
+        const lastRow = table.rows[table.rows.length - 1]; // Get the last row
+
+        // Populate the last row with your data
+        lastRow.querySelector("[name='room_type[]']").value = invoice.room_type;
+        lastRow.querySelector("[name='no_of_days[]']").value = invoice.no_of_days;
+        lastRow.querySelector("[name='room_no[]']").value = invoice.room_no;
+        lastRow.querySelector("[name='room_price[]']").value = invoice.rent_per_day;
+        lastRow.querySelector("[name='row_amt[]']").value = invoice.row_amt;
+
+        if (index < maxrec - 1) {
+          addRow();
+        }
+        //-------------------------
+      });
+    }
+  });
+}
+
+
+// document.getElementById('edit_form').addEventListener('click', function edit_form() {
+//   document.getElementById('edit_form_modal').style.display = 'block';
+  
+// })
+
+// Get the modal element
+var modal = document.querySelector('.modal');
+
+// Get the button that opens the modal
+var btn = document.querySelector('#edit_form');
+
+// Get the <span> element that closes the modal
+var span = document.querySelector('.close');
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = 'block';
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = 'none';
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}

@@ -78,9 +78,9 @@ $date_out = isset($_POST['date_out']) ? $_POST['date_out'] : date('Y-m-d', strto
 								<div class="col-md-5" height="100%">
 									<h3><b><?php echo '₹ '.number_format($cat_arr[$row['category_id']]['price'],2) ?></b><span> / per day</span></h3>
 
-									<h4><b>
-										<?php echo $cat_arr[$row['category_id']]['name'] ?>
-									</b></h4>
+									<h4>
+										<b><?php echo $cat_arr[$row['category_id']]['name'] ?></b>
+									</h4>
 									<div class="align-self-end mt-5">
 										<button class="btn btn-primary  float-right book_now" type="button" data-id="<?php echo $row['category_id'] ?>">Book now</button>
 									</div>

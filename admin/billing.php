@@ -1,4 +1,32 @@
-<?php include('db_connect.php');
+<?php
+include('db_connect.php');
+include_once("utils/utils.php");
+
+$result = $conn->query("SELECT * from setup limit 1");
+if ($result->num_rows > 0) {
+    // Fetch the first row from the result set
+    $row = $result->fetch_assoc();
+
+    // Initialize an array to store the metadata
+    $meta = array();
+
+    // Process each key-value pair in the fetched row
+    foreach ($row as $key => $value) {
+        // Store the key-value pair in the $meta array
+        $meta[$key] = $value;
+    }
+
+    // Assuming tagcals is a function defined in utils.php, process booking_id
+    if (isset($meta['booking_id'])) {
+        $booking_id = tagcals($meta['booking_id']);
+    } else {
+        // Handle the case where 'booking_id' is not set in the metadata
+        $booking_id = null; // or assign a default value
+    }
+} else {
+    // Handle the case where no rows are returned from the query
+    // For example, display an error message or set default values for $meta and $booking_id
+}
 
 
 ?>
@@ -217,7 +245,7 @@
             <h4 class="ms-2 fs-6"> Check-In</h4>
             <div class="col-lg-12 overflow-hidden">
 
-                <form action="billingsave.php" method="post">
+                <form action="billingsave.php" method="post" autocomplete="off">
                     <div class="container-fluid c1">
                         <div class="row">
                             <div class="col-md-4">
@@ -285,7 +313,7 @@
 
                                 <div class="mb d-flex">
                                     <label for="gst_no" class="form-label">GST No</label>
-                                    <input type="text" class="form-control shadow-none" name="gst_no" id="gst_no" value="" required onchange="gst_cal()">
+                                    <input type="text" class="form-control shadow-none" name="gst_no" id="gst_no" value="" onchange="gst_cal()">
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="purpose" class="form-label">Purpose Of Visit</label>
@@ -296,11 +324,11 @@
                             <div class="col-md-4">
                                 <div class="mb d-flex">
                                     <label for="photo" class="form-label">Photo</label>
-                                    <input type="file" class="form-control shadow-none" name="photo" id="photo" >
+                                    <input type="file" class="form-control shadow-none" name="photo" id="photo">
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="per_proof" class="form-label">Personal Proof</label>
-                                    <input type="file" class="form-control shadow-none" name="per_proof" id="per_proof" >
+                                    <input type="file" class="form-control shadow-none" name="per_proof" id="per_proof">
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="per_proof_no" class="form-label">Proof Id No</label>
@@ -308,7 +336,7 @@
                                 </div>
                                 <div class="mb d-flex">
                                     <label for="booking_id" class="form-label">Booking Id</label>
-                                    <input type="text" class="form-control shadow-none" name="booking_id" id="booking_id" required>
+                                    <input type="text" class="form-control shadow-none" readonly value="<?php echo $booking_id; ?>" name="booking_id" id="booking_id" required>
                                 </div>
                             </div><!-- col end-->
                         </div><!-- row end-->
@@ -327,7 +355,7 @@
                                     <label for="currentTime" class="form-label">Check-in Time</label>
                                     <input type="text" class="form-control shadow-none ms-2" id="currentTime" name="currentTime" readonly>
 
-                                    
+
                                 </div>
                             </div>
                             <div class="col-md-4 flex-fill">
@@ -371,7 +399,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
 
                     <div class="wrapper-2 mb-1">
                         <div class="table-frame">
@@ -425,11 +453,11 @@
                                         <td>
                                             <input type="number" class="" name="room_price[]" id="room_price" readonly>
                                         </td>
-                                     
-                                     
+
+
                                         <td>
 
-                                            <input type="number" class="row_amt" name="row_amt[]" id="row_amt"readonly>
+                                            <input type="number" class="row_amt" name="row_amt[]" id="row_amt" readonly>
                                         </td>
 
                                         <td>
@@ -441,11 +469,11 @@
 
                         </div>
                     </div>
-                    
+
                     <div class="container-fluid">
                         <div class="row">
-                        <div class="col-md-4">
-                                
+                            <div class="col-md-4">
+
                                 <div id="igst-div">
                                     <div class="mb d-flex">
                                         <label for="igst" class="form-label">I GST</label>
@@ -467,17 +495,17 @@
                                         <!-- <input type="number" class="form-control shadow-none" name="r_cgst_h" id="r_cgst_h" readonly> -->
                                     </div>
                                 </div>
-                                
+
                             </div><!-- col end-->
 
                             <div class="col-md-8">
                                 <div class="col-12 d-flex justify-content-end ">
                                     <h6 class="d-flex me-3">Total</h6>
-                                   <input style="width:36%;margin-bottom: 2px; text-align: end;" class="form-control" type="number" placeholder="₹0.00" name="total" id="total" readonly>
+                                    <input style="width:36%;margin-bottom: 2px; text-align: end;" class="form-control" type="number" placeholder="₹0.00" name="total" id="total" readonly>
                                 </div>
                                 <div class="col-12 d-flex justify-content-end ">
                                     <h6 class="d-flex me-3">Discount</h6>
-                                  
+
                                     <input style="width:36%;margin-bottom: 2px; text-align: end;" class="form-control " type="number" placeholder="₹0.00" name="discount" id="discount" oninput="calculateTotal()">
                                 </div>
                                 <div class="col-12 d-flex justify-content-end ">
@@ -502,11 +530,59 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 justify-content-end d-flex">
-                        <button type="submit" name="save" id="save" class="btn btn-primary shadow-none my-2 me-3">Save</button>
-                        <button type="button" id="print_bill" class="btn btn-primary shadow-none my-2 me-3">Print</button>
+                        <!-- Modal -->
+                        <div class="modal" id="edit_form_modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <p>Select Bill No </p>
+                                <input class="form-control" list="acname" name="edit_input" id="edit_input" placeholder="Type to search...">
+                                <datalist id="acname">
+                                    <?php
+                                    $sql = mysqli_query($conn, "SELECT * FROM customer_booking  ORDER BY booking_id");
+                                    while ($row = $sql->fetch_assoc()) {
+                                        echo "<option value='" . $row['booking_id'] . " " . $row['cust_name'] . "' data-acid='" . $row['booking_id'] . "' style='word-spacing: 70px;'></option>";
+
+                                    }
+                                    ?>
+                                </datalist>
+                                <input type="hidden" name="edit_input_hidden" id="edit_input_hidden">
+                                <button type="button" class="btn btn-primary px-4 mt-2 w-25 ms-auto" onclick="show_form_det()">ok</button>
+                            </div>
                         </div>
-                        
+
+                        <!-- <div class="modal" id="edit_form_modal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="edit_form_modalLabel">Select Bill No </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input class="form-control" list="acname" name="edit_input" id="edit_input" placeholder="Type to search...">
+                                        <datalist id="acname">
+                                            <?php
+                                            // $sql = mysqli_query($conn, "SELECT * FROM customer_booking  ORDER BY id");
+                                            // while ($row = $sql->fetch_assoc()) {
+                                            //     echo "<option value='" . $row['cust_name'] . "' data-acid='" . $row['id'] . "'></option>";
+                                            // }
+                                            ?>
+                                        </datalist>
+                                        <input type="hidden" name="edit_input_hidden" id="edit_input_hidden">
+                                    </div>
+                                    <div class="modal-footer">
+                                       
+                                        <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal" aria-label="Close" onclick="show_form_det()">Ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-12 justify-content-end d-flex">
+                            <button type="submit" name="save" id="save" class="btn btn-success shadow-none my-2 me-3">Save</button>
+                            <button type="submit" name="update" id="update" class="btn btn-warning text-white fw-bold shadow-none my-2 me-3">Update</button>
+                            <button type="button" id="edit_form" class="btn btn-primary shadow-none my-2 me-3">Edit</button>
+                            <button type="button" id="print_bill" class="btn btn-primary shadow-none my-2 me-3">Print</button>
+                        </div>
+                        <!-- data-bs-toggle="modal" data-bs-target="#edit_form_modal" -->
                     </div>
                     <!-- <div class="container-fluid c5">
                         <div class="row d-flex mb align-items-end">

@@ -18,6 +18,13 @@
 		if(!is_numeric($key))
 			$_SESSION['setting_'.$key] = $value;
 	}
+  
+
+	$query2 = $conn->query("SELECT * FROM setup limit 1")->fetch_array();
+	foreach ($query2 as $keys => $values) {
+		if(!is_numeric($keys))
+			$_SESSION['setup_'.$keys] = $values;
+	}
     ?>
 
     <style>

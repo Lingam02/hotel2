@@ -114,7 +114,7 @@ include_once('assets/includes/headlinks.php');
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8 p-4 mb-lg-0 mb-4 bg-white rounded">
-            <iframe class="w-100 rounded" height="320px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1945.1518754631636!2d79.70576095716574!3d12.823637900839275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52c35ece9c5e5b%3A0xfd4b8349ec416a3c!2sTECH%20FLOW!5e0!3m2!1sen!2sin!4v1704763178747!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="w-100 rounded" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3890.302988694635!2d79.71129707364841!3d12.823687218106809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDQ5JzI1LjMiTiA3OcKwNDInNDkuOSJF!5e0!3m2!1sen!2sin!4v1707285396625!5m2!1sen!2sin" width="600" height="450" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="col-lg-4 col-md-4">
             <div class="bg-white p-4 rounded mb-4">
@@ -162,53 +162,53 @@ include_once('assets/includes/headlinks.php');
 <!-- custom -->
 <!-- Testimonial -->
 <section class="bg-light p-5">
-<h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">TESTIMONIALS</h2>
-<div class="container">
-    <div class="swiper swiper_testimonial">
-        <div class="swiper-wrapper mb-5">
-            <div class="swiper-slide bg-white p-4">
-                <div class="profile d-flex align-items-center p-4">
-                    <img src="assets/images/about/staff.svg" width="30px" alt="">
-                    <h6 class=" m-0 ms-2">User 1</h6>
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">TESTIMONIALS</h2>
+    <div class="container">
+        <div class="swiper swiper_testimonial">
+            <div class="swiper-wrapper mb-5">
+                <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                        <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 1</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
                 </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
-                <div class="rating">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
+                <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                        <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 2</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
                 </div>
-            </div>
-            <div class="swiper-slide bg-white p-4">
-                <div class="profile d-flex align-items-center p-4">
-                    <img src="assets/images/about/staff.svg" width="30px" alt="">
-                    <h6 class=" m-0 ms-2">User 2</h6>
+                <div class="swiper-slide bg-white p-4">
+                    <div class="profile d-flex align-items-center p-4">
+                        <img src="assets/images/about/staff.svg" width="30px" alt="">
+                        <h6 class=" m-0 ms-2">User 3</h6>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
                 </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
-                <div class="rating">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                </div>
-            </div>
-            <div class="swiper-slide bg-white p-4">
-                <div class="profile d-flex align-items-center p-4">
-                    <img src="assets/images/about/staff.svg" width="30px" alt="">
-                    <h6 class=" m-0 ms-2">User 3</h6>
-                </div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis ipsum eveniet ex aut harum porro, nisi optio, nesciunt at voluptatum aliquam repellat fuga minima maiores tempore praesentium quidem. Asperiores, molestiae.</p>
-                <div class="rating">
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                    <i class="bi bi-star-fill text-warning"></i>
-                </div>
-            </div>
-            <!-- <div class="swiper-slide bg-white p-4">
+                <!-- <div class="swiper-slide bg-white p-4">
                     <div class="profile d-flex align-items-center p-4">
                     <img src="assets/images/about/staff.svg" width="30px" alt="">
                         <h6 class=" m-0 ms-2">User 4</h6>
@@ -223,14 +223,14 @@ include_once('assets/includes/headlinks.php');
                     </div>
                 </div> -->
 
-        </div>
-        <div class="swiper-pagination"></div>
+            </div>
+            <div class="swiper-pagination"></div>
 
+        </div>
+        <div class="col-lg-12 text-center mt-5">
+            <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More >>></a>
+        </div>
     </div>
-    <div class="col-lg-12 text-center mt-5">
-        <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More >>></a>
-    </div>
-</div>
 </section>
 
 <!-- custom -->
